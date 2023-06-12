@@ -4,4 +4,7 @@
 
 ## 内容
 
+- Southern/Northern/Western blotting
 - [免疫沈降](IP.md)
+- CRISPR-Cas9
+- FRET
