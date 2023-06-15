@@ -16,3 +16,13 @@
 
 つまり、
 $\lambda x.(\lambda y.(f\, x))$ は $\lambda xy. f\, x$に等しい。
+
+## 定義1.2 自由変数
+
+λ項 $M$ の持つ自由変数の集合 $FV(M)$ を以下のように定義する
+
+1. $FV(x) =$ { $x$ }
+1. $FV(\lambda x.M) = FV(M)\backslash$ { $x$ }
+1. $FV(M\,N) = FV(M) \cup FV(N)$
+
+$FV(\lambda x.M)$ は { $x$ } を含まず、この場合 $x$ は束縛変数と呼ばれる。
