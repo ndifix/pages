@@ -44,3 +44,13 @@ $(\lambda x.x\, y)\, z \equiv (\lambda z.z\, y)\, z$
 $\lambda x.(\lambda x.x\, x) \equiv \lambda x.(\lambda y.y\, y)$
 
 複数のλ項 $M_1, \cdots, M_n$ についてそれらの束縛変数と自由変数が重ならないと仮定しても一般性を失わない。この仮定を **BVC (Barendregt variable Convention)** という。
+
+## 定義1.4 代入
+
+任意のλ項 $M, N$ と変数 $x$ に対して、λ項 $M[x:=N]$ を以下のように定める
+
+1. $x[x:=N] = N$
+1. $y[x:=N] = y$ (ただし $x\not\equiv y$ )
+1. $\lambda x.M[x:=N] = \lambda x.M$
+1. $\lambda y.M[x:=N] = \lambda y.(M[x:=N])$ (ただし $x\not\equiv y$ かつ $y\not\in FV(N)$ )
+1. $(M_1\, M_2) [x:=N] = (M_1[x:=N])\, (M_2[x:=N])$
