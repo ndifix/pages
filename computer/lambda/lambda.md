@@ -114,6 +114,7 @@ $\to_\beta \lambda f.\lambda x.f\ (f\ x)$
 
 以下のように関数を定める
 
+- $sub := \lambda n.\lambda f.\lambda x.n\ (\lambda g.\lambda h.h\ (g\ f))\ (\lambda y.x)\ (\lambda y.y)$
 - $add := \lambda m.\lambda n. \lambda f.\lambda x.m\ f\ (n\ f\ x)$
 - $mul := \lambda m.\lambda n.\lambda f.\lambda x.m\ (n\ f)\ x$
 - $true := \lambda x.\lambda y.x$
@@ -122,6 +123,27 @@ $\to_\beta \lambda f.\lambda x.f\ (f\ x)$
 - $or := \lambda p.\lambda q. p\ true\ q$
 - $not := \lambda p. p\ false\ true$
 - $if := \lambda p.\lambda x.\lambda y. p\ x\ y$
+
+### 計算例
+
+$sub\ c_0$  
+$\equiv (\lambda n.\lambda f.\lambda x.n\ (\lambda g.\lambda h.h\ (g\ f))\ (\lambda y.x)\ (\lambda y.y))\ (\lambda f.\lambda x. x)$  
+$\to_\beta \lambda f.\lambda x.(\lambda f.\lambda x. x)\ (\lambda g.\lambda h.h\ (g\ f))\ (\lambda y.x)\ (\lambda y.y)$  
+$\to_\beta \lambda f.\lambda x.(\lambda x. x)\ (\lambda y.x)\ (\lambda y.y)$  
+$\to_\beta \lambda f.\lambda x.(\lambda y.x)\ (\lambda y.y)$  
+$\to_\beta \lambda f.\lambda x.x$  
+$\equiv c_0$
+
+$sub\ c_1$  
+$\equiv (\lambda n.\lambda f.\lambda x.n\ (\lambda g.\lambda h.h\ (g\ f))\ (\lambda y.x)\ (\lambda y.y))\ (\lambda f.\lambda x.f\ x)$  
+$\to_\beta \lambda f.\lambda x.(\lambda f.\lambda x.f\ x)\ (\lambda g.\lambda h.h\ (g\ f))\ (\lambda y.x)\ (\lambda y.y)$  
+$\to_\beta \lambda f.\lambda x.(\lambda x.(\lambda g.\lambda h.h\ (g\ f))\ x)\ (\lambda y.x)\ (\lambda y.y)$  
+$\to_\beta \lambda f.\lambda x.(\lambda g.\lambda h.h\ (g\ f))\ (\lambda y.x)\ (\lambda y.y)$  
+$\to_\beta \lambda f.\lambda x.(\lambda h.h\ (\lambda y.x)\ f)\ (\lambda y.y)$  
+$\to_\beta \lambda f.\lambda x.(\lambda y.y)\ (\lambda y.x)\ f$  
+$\to_\beta \lambda f.\lambda x.(\lambda y.x)\ f$  
+$\to_\beta \lambda f.\lambda x.x$  
+$\equiv c_0$
 
 ## 定義1.8 不動点コンビネータ
 
