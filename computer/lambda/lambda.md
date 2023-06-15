@@ -122,3 +122,30 @@ $\to_\beta \lambda f.\lambda x.f\ (f\ x)$
 - $or := \lambda p.\lambda q. p\ true\ q$
 - $not := \lambda p. p\ false\ true$
 - $if := \lambda p.\lambda x.\lambda y. p\ x\ y$
+
+## 定義1.8 不動点コンビネータ
+
+以下の性質を持つλ項 $M$ を不動点コンビネータという。すなわち  
+$M\ g \to_\beta \cdots \to_\beta g\ (M\ g)$
+
+### 例 Yコンビネータ
+
+$Y := \lambda f.(\lambda x.f\ (x\ x))\ (\lambda x.f\ (x\ x))$
+をYコンビネータという。実際、  
+$Y\ g$  
+$\equiv \lambda f.(\lambda x.f\ (x\ x))\ (\lambda x.f\ (x\ x))\ g$  
+$\to_\beta (\lambda x.g\ (x\ x))\ (\lambda x.g\ (x\ x))$  
+$\to_\beta g\ ((\lambda x.h\ (x\ x))\ (\lambda x.h\ (x\ x)))$  
+$\leftarrow_\beta g\ (Y\ g)$
+
+これは広義の不動点コンビネータになっている。
+
+### 例 Θコンビネータ
+
+$\Theta := (\lambda x.\lambda y.y\ (x\ x\ y))\ (\lambda x.\lambda y.y\ (x\ x\ y))$ は
+
+$\Theta\ g$  
+$\equiv (\lambda x.\lambda y.y\ (x\ x\ y))\ (\lambda x.\lambda y.y\ (x\ x\ y))\ g$  
+$\to_\beta (\lambda y.y\ ((\lambda x.\lambda y.y\ (x\ x\ y))\ (\lambda x.\lambda y.y\ (x\ x\ y))\ y))\ g$  
+$\to_\beta g\ ((\lambda x.\lambda y.y\ (x\ x\ y))\ (\lambda x.\lambda y.y\ (x\ x\ y))\ g)$  
+$\equiv g\ (\Theta\ g)$
