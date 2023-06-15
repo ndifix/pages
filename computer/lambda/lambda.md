@@ -72,3 +72,13 @@ $M \to_\beta M'$ となる $M'$ が存在しない場合 $M$ はβ標準形と�
 1. $(\lambda x.(\lambda y.y\ x))\ (\lambda z.w) \to_\beta \lambda y.y\ (\lambda z.w) \to_\beta \lambda z.w$
 1. $(\lambda x.x\ x)\ (\lambda y.y\ y) \to_\beta (\lambda y.y\ y)\ (\lambda y.y\ y)$
 1. $(\lambda x.f\ (x\ x))\ (\lambda y.g\ (y\ y)) \to_\beta f\ (\lambda y.g\ (y\ y))\ (\lambda y.g\ (y\ y))$
+
+## 定理1.1 チャーチ・ロッサーの定理
+
+任意のλ項 $M, N_1, N_2 について、空でもよいβ簡約の有限列 $M \to_\beta \cdots \to_\beta N_1$ と $M \to_\beta \cdots \to_\beta N_2$ が存在するとき、あるλ項 $N$ が存在して、空でもよいβ簡約の列 $N_1 \to_\beta \cdots \to_\beta N$ と $N_2 \to_\beta \cdots \to_\beta N$ が存在する。
+
+この定理から以下の命題が従う。
+
+## 命題1.1 β正規形の一意性
+
+任意のβ項 $M$ は高々1つのβ正規形を持つ。
