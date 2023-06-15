@@ -26,3 +26,19 @@ $\lambda x.(\lambda y.(f\, x))$ は $\lambda xy. f\, x$に等しい。
 1. $FV(M\,N) = FV(M) \cup FV(N)$
 
 $FV(\lambda x.M)$ は { $x$ } を含まず、この場合 $x$ は束縛変数と呼ばれる。
+
+## 定義1.3 α変換
+
+$\lambda x.M$ について、 $x$ の $M$ における自由な出現を全て $M$ に現れない別の変数に置き換える操作をα変換という。
+
+λ項 $M, N$ が同一またはα変換によって同一になる場合 $M \equiv N$ と書く。
+
+### 同一視の例
+
+$\lambda x.f\, x \equiv \lambda x.f\, x$  
+$\lambda x.f\, x \equiv \lambda y.f\, y$  
+$\lambda x.f\, x\, y \not\equiv \lambda y.f\, y\, y$  
+$(\lambda x.x\, y)\, z \equiv (\lambda z.z\, y)\, z$  
+$\lambda x.(\lambda x.x\, x) \equiv \lambda x.(\lambda y.y\, y)$
+
+複数のλ項 $M_1, \cdots, M_n$ についてそれらの束縛変数と自由変数が重ならないと仮定しても一般性を失わない。この仮定を **BVC (Barendregt variable Convention)** という。
