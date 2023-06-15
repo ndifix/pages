@@ -54,3 +54,21 @@ $\lambda x.(\lambda x.x\, x) \equiv \lambda x.(\lambda y.y\, y)$
 1. $\lambda x.M[x:=N] = \lambda x.M$
 1. $\lambda y.M[x:=N] = \lambda y.(M[x:=N])$ (ただし $x\not\equiv y$ かつ $y\not\in FV(N)$ )
 1. $(M_1\, M_2) [x:=N] = (M_1[x:=N])\, (M_2[x:=N])$
+
+## 定義1.5 β簡約
+
+λ項上の二項関係 $\to_\beta$ を以下のように定義する
+
+1. $(\lambda x.M)\, N \to_\beta M[x:=N]$
+1. $M_1 \to_\beta M_2$ なら
+    - $\lambda x.M_1 \to_\beta \lambda x.M_2$
+    - $N\, M_1 \to_\beta N\, M_2$
+    - $M_1\, N \to_\beta M_2\, N$
+
+$M \to_\beta M'$ となる $M'$ が存在しない場合 $M$ はβ標準形という。
+
+### 例
+
+1. $(\lambda x.(\lambda y.y\, x))\, (\lambda z.w) \to_\beta \lambda y.y\, (\lambda z.w) \to_\beta \lambda z.w$
+1. $(\lambda x.x\, x)\, (\lambda y.y\, y) \to_\beta (\lambda y.y\, y)\, (\lambda y.y\, y)$
+1. $(\lambda x.f\, (x\, x))\, (\lambda y.g\, (y\, y)) \to_\beta f\, (\lambda y.g\, (y\, y))\, (\lambda y.g\, (y\, y))$
