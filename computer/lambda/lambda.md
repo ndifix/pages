@@ -82,3 +82,43 @@ $M \to_\beta M'$ となる $M'$ が存在しない場合 $M$ はβ標準形と�
 ## 命題1.1 β正規形の一意性
 
 任意のβ項 $M$ は高々1つのβ正規形を持つ。
+
+## 定義1.6 自然数
+
+自然数を以下のように定義する
+
+- $0$ は $c_0 \equiv \lambda f.\lambda x. x$ として定める。
+- $succ$ は $\lambda m.\lambda f.\lambda x.f\ (m\ f\ x)$ として定める
+
+このとき  
+$c_1$  
+$\equiv succ\ c_0$  
+$\equiv (\lambda m.\lambda f.\lambda x.f\ (m\ f\ x))\ (\lambda f.\lambda x. x)$  
+$\to_\beta \lambda f.\lambda x.f\ (((\lambda g.\lambda y. y)\ f)\ x)$  
+$\to_\beta \lambda f.\lambda x.f\ (\lambda y. y\ x)$  
+$\to_\beta \lambda f.\lambda x.f\ x$  
+
+$c_2$  
+$\equiv succ\ c_1$  
+$\equiv succ\ \lambda f.\lambda x.f\ x$  
+$\equiv \lambda m.\lambda f.\lambda x.f\ (m\ f\ x)\ (\lambda f.\lambda x.f\ x)$  
+$\to_\beta \lambda f.\lambda x.f\ ((\lambda g.\lambda y.g\ y)\ f\ x)$  
+$\to_\beta \lambda f.\lambda x.f\ ((\lambda y.f\ y)\ x)$  
+$\to_\beta \lambda f.\lambda x.f\ (f\ x)$  
+
+したがって $c_n \equiv \lambda f.\lambda x.f\ (f\cdots (f\ x))$ となる。
+
+この表現方法をチャーチ・エンコーディングという。
+
+## 定義1.7 算術関数・論理式
+
+以下のように関数を定める
+
+- $add := \lambda m.\lambda n. \lambda f.\lambda x.m\ f\ (n\ f\ x)$
+- $mul := \lambda m.\lambda n.\lambda f.\lambda x.m\ (n\ f)\ x$
+- $true := \lambda x.\lambda y.x$
+- $false := \lambda x.\lambda y.y \equiv c_0$
+- $and := \lambda p.\lambda q. p\ q\ false$
+- $or := \lambda p.\lambda q. p\ true\ q$
+- $not := \lambda p. p\ false\ true$
+- $if := \lambda p.\lambda x.\lambda y. p\ x\ y$
