@@ -1,8 +1,3 @@
----
-title: "概要"
-author: "ndifix"
----
-
 # 細胞生物学
 
 この章では細胞生物学(cell biology) について説明します。
