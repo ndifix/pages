@@ -7,6 +7,7 @@
 
 - 細胞外観
 - [セントラルドグマ](centralDogma.md)
+    - [アミノ酸](aminoAcids.md)
 - 遺伝子
 - タンパク質
 - 細胞骨格
